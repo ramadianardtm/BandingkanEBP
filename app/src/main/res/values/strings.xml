@@ -10,6 +10,6 @@
         <item>36</item>
     </string-array>
 
-    <string name="selisih">**Perhitungan sudah termasuk selisih Jangka Waktu (BMI di 12,24 dan 36 bulan), Asuransi dan Uang muka (DP), karena BMI tanpa DP</string>
+    <string name="selisih">**Perhitungan sudah termasuk selisih Jangka Waktu (12,24 dan 36 bulan), dan Biaya Lain, BMI tanpa DP</string>
 
 </resources>

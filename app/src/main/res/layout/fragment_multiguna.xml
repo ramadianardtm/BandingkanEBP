@@ -63,6 +63,14 @@
                 android:text=":"
                 android:textColor="@color/black"
                 android:textSize="12sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/mmedium"
+                android:gravity="center_vertical"
+                android:text="Rp. "
+                android:textColor="@color/black"
+                android:textSize="12sp" />
 
             <EditText
                 android:id="@+id/et_hargaBarang"
@@ -98,6 +106,14 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/mmedium"
                 android:text=":"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/mmedium"
+                android:gravity="center_vertical"
+                android:text="Rp. "
                 android:textColor="@color/black"
                 android:textSize="12sp" />
 
@@ -136,6 +152,14 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/mmedium"
                 android:text=":"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/mmedium"
+                android:gravity="center_vertical"
+                android:text="Rp. "
                 android:textColor="@color/black"
                 android:textSize="12sp" />
 
@@ -177,6 +201,14 @@
                 android:text=":"
                 android:textColor="@color/black"
                 android:textSize="12sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/mmedium"
+                android:gravity="center_vertical"
+                android:text="Rp. "
+                android:textColor="@color/black"
+                android:textSize="12sp" />
 
             <EditText
                 android:id="@+id/et_angsuran"
@@ -196,7 +228,6 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginHorizontal="13dp"
-            android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
             <TextView
@@ -217,14 +248,6 @@
                 android:text=":"
                 android:textColor="@color/black"
                 android:textSize="12sp" />
-
-           <!-- <Spinner
-                android:id="@+id/sp_jangkaWaktu"
-                android:layout_gravity="center_vertical"
-                android:layout_width="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_height="wrap_content"
-                android:entries="@array/jangkaWaktu"/>-->
             <EditText
                 android:id="@+id/et_jangkaWaktu"
                 android:layout_width="50dp"
@@ -248,77 +271,78 @@
                 android:textColor="@color/black"
                 android:textSize="12sp" />
         </LinearLayout>
-
         <LinearLayout
-            android:id="@+id/linear6"
+            android:id="@+id/linea5b"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="40dp"
             android:layout_marginHorizontal="13dp"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linear5">
+            android:orientation="horizontal">
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:id="@+id/tv_totalBayar"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
                 android:fontFamily="@font/mmedium"
-                android:text="*Jika ada, misal untuk biaya asuransi, admin, survey, dll"
-                android:textAlignment="viewStart"
+                android:text="Total Bayar"
                 android:textColor="@color/black"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/mmedium"
+                android:gravity="center_vertical"
+                android:text=":"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/mmedium"
+                android:gravity="center_vertical"
+                android:text="Rp. "
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_totalBayarLain"
+                android:layout_width="140dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="7dp"
+                android:hint="*********"
+                android:fontFamily="@font/mmedium"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn_clear"
+                android:layout_width="68dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginHorizontal="10dp"
+                android:background="@drawable/round_bg_org"
+                android:fontFamily="@font/mbold"
+                android:text="Clear"
+                android:textColor="@color/white"
+                android:textSize="10dp" />
+
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/linear7"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="3dp"
+            android:background="@color/primary"
             android:layout_marginHorizontal="13dp"
             android:layout_marginTop="10dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linear6">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cons_totalbayar"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:background="@drawable/round_bg_org"
-                android:textAlignment="viewStart">
-
-                <TextView
-                    android:id="@+id/tv_totalBayar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/mbold"
-                    android:text="Total Bayar :"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/tv_totalBayarLain"
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:textColor="@color/black"
-                    android:background="@drawable/round_bg_wt"
-                    android:fontFamily="@font/mmedium"
-                    android:hint="***********"
-                    android:textAlignment="center"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_totalBayar" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -326,24 +350,44 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="13dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="120dp"
-                android:layout_height="30dp"
+                android:layout_height="40dp"
                 android:src="@drawable/logo_bank_muamalat" />
 
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linear8b"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/round_bg_prp"
+            android:layout_marginHorizontal="13dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:background="@drawable/round_bg"
+                android:id="@+id/tv_skemaEBP2"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="8dp"
                 android:fontFamily="@font/mbold"
-                android:text="Perbandingan"
-                android:textAlignment="center"
+                android:text="Skema EBP"
                 android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
+            <Spinner
+                android:id="@+id/sp_option"
+                android:layout_gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_marginHorizontal="15dp"
+                android:layout_height="30dp"
+                android:background="@drawable/style_spinner" />
+
+
         </LinearLayout>
 
         <LinearLayout
@@ -544,64 +588,10 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linear14"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="13dp"
-            android:layout_marginVertical="15dp"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cons_skemaEBP"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:background="@drawable/round_bg"
-                android:textAlignment="viewStart">
-
-                <TextView
-                    android:id="@+id/tv_skemaEBP"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="7dp"
-                    android:fontFamily="@font/mbold"
-                    android:text="Skema EBP"
-                    android:textColor="@color/white"
-                    android:textSize="14sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <Spinner
-                    android:id="@+id/sp_option"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
-                    android:background="@drawable/style_spinner"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_skemaEBP" />
-
-                <Button
-                    android:id="@+id/btn_clear"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/round_bg_org"
-                    android:fontFamily="@font/mbold"
-                    android:layout_marginHorizontal="10dp"
-                    android:text="Clear"
-                    android:textColor="@color/white"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/sp_option"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_skemaEBP" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </LinearLayout>
-        <LinearLayout
             android:id="@+id/linear15"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="12dp"
             android:layout_marginHorizontal="13dp"
             android:orientation="vertical">
 
@@ -618,6 +608,25 @@
                 android:textStyle="normal" />
 
         </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linear16"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="13dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/mmedium"
+                android:layout_marginTop="8dp"
+                android:textStyle="bold"
+                android:text="Powered by DNM - CFB Ver 1.0"
+                android:textAlignment="center"
+                android:textColor="@color/primary"
+                android:textSize="10sp" />
+        </LinearLayout>
+
 
     </LinearLayout>
     </LinearLayout>
