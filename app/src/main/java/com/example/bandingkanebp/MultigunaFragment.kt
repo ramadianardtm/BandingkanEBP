@@ -67,9 +67,13 @@ class MultigunaFragment : Fragment() {
                         val hb = hb.text.toString().toInt()
                         fun payrollFinancing12(){
                             val multiply = (dp+bl) + (angL*tL)
+                            val value = multiply.toString()
                             val iM: Double = 0.145
                             val i:Int = 0
                             //Fungsi Pangkat
+                            if(tL == 11||tL == 23 || tL ==35){
+                                tL = tL+1
+                            }
                             val Number:Double = (1+(iM/12))
                             val tLs = tL.toDouble()
 
@@ -86,7 +90,6 @@ class MultigunaFragment : Fragment() {
                             val angM_Tv = angM1T.toString()
                             val tBM_Tv = tbMT.toString()
                             val tL2 = tL.toString()
-                            val value = multiply.toString()
                             val selisihEBP = selisih.toString()
                             angS2.setText("Rp. "+angM_Tv)
                             TangS.setText("Rp. "+tBM_Tv)
@@ -96,9 +99,13 @@ class MultigunaFragment : Fragment() {
                         }
                         fun payrollFinancing24(){
                             val multiply = (dp+bl) + (angL*tL)
+                            val value = multiply.toString()
                             val iM: Double = 0.16
                             val i:Int = 0
                             //Fungsi Pangkat
+                            if(tL == 11||tL == 23 || tL ==35){
+                                tL = tL+1
+                            }
                             val Number:Double = (1+(iM/12))
                             val tLs = tL.toDouble()
 
@@ -115,7 +122,7 @@ class MultigunaFragment : Fragment() {
                             val angM_Tv = angM1T.toString()
                             val tBM_Tv = tbMT.toString()
                             val tL2 = tL.toString()
-                            val value = multiply.toString()
+
                             val selisihEBP = selisih.toString()
                             angS2.setText("Rp. "+angM_Tv)
                             TangS.setText("Rp. "+tBM_Tv)
@@ -125,9 +132,13 @@ class MultigunaFragment : Fragment() {
                         }
                         fun payrollFinancing36(){
                             val multiply = (dp+bl) + (angL*tL)
+                            val value = multiply.toString()
                             val iM: Double = 0.16
                             val i:Int = 0
                             //Fungsi Pangkat
+                            if(tL == 11||tL == 23 || tL ==35){
+                                tL = tL+1
+                            }
                             val Number:Double = (1+(iM/12))
                             val tLs = tL.toDouble()
 
@@ -144,7 +155,7 @@ class MultigunaFragment : Fragment() {
                             val angM_Tv = angM1T.toString()
                             val tBM_Tv = tbMT.toString()
                             val tL2 = tL.toString()
-                            val value = multiply.toString()
+
                             val selisihEBP = selisih.toString()
                             angS2.setText("Rp. "+angM_Tv)
                             TangS.setText("Rp. "+tBM_Tv)
@@ -153,15 +164,12 @@ class MultigunaFragment : Fragment() {
                             stb.setText("Rp. "+selisihEBP)
                         }
 
-                        if(tL == 11||tL == 23 || tL ==35){
-                            tL = tL+1
-                        }
-                        if(tL == 12 || tL == 24 || tL == 36){
-                            if(tL == 12){
+                        if(tL == 12 || tL == 24 || tL == 36 || tL == 11|| tL == 23 || tL == 35){
+                            if(tL == 12 || tL == 11){
                                 payrollFinancing12()
-                            }else if (tL ==24){
+                            }else if (tL == 24 || tL == 23){
                                 payrollFinancing24()
-                            }else if (tL==36){
+                            }else if (tL== 36 || tL == 35){
                                 payrollFinancing36()
                             }
                         }else if (dp == null || bl == null || angL == null || tL == null || hb == null){
@@ -180,9 +188,13 @@ class MultigunaFragment : Fragment() {
                         val hb = hb.text.toString().toInt()
                         fun payrollFinancing12(){
                             val multiply = (dp+bl) + (angL*tL)
+                            val value = multiply.toString()
                             val iM: Double = 0.155
                             val i:Int = 0
                             //Fungsi Pangkat
+                            if(tL == 11||tL == 23 || tL ==35){
+                                tL = tL+1
+                            }
                             val Number:Double = (1+(iM/12))
                             val tLs = tL.toDouble()
 
@@ -199,7 +211,7 @@ class MultigunaFragment : Fragment() {
                             val angM_Tv = angM1T.toString()
                             val tBM_Tv = tbMT.toString()
                             val tL2 = tL.toString()
-                            val value = multiply.toString()
+
                             val selisihEBP = selisih.toString()
                             angS2.setText("Rp. "+angM_Tv)
                             TangS.setText("Rp. "+tBM_Tv)
@@ -209,9 +221,13 @@ class MultigunaFragment : Fragment() {
                         }
                         fun payrollFinancing24(){
                             val multiply = (dp+bl) + (angL*tL)
+                            val value = multiply.toString()
                             val iM: Double = 0.17
                             val i:Int = 0
                             //Fungsi Pangkat
+                            if(tL == 11||tL == 23 || tL ==35){
+                                tL = tL+1
+                            }
                             val Number:Double = (1+(iM/12))
                             val tLs = tL.toDouble()
 
@@ -228,7 +244,7 @@ class MultigunaFragment : Fragment() {
                             val angM_Tv = angM1T.toString()
                             val tBM_Tv = tbMT.toString()
                             val tL2 = tL.toString()
-                            val value = multiply.toString()
+
                             val selisihEBP = selisih.toString()
                             angS2.setText("Rp. "+angM_Tv)
                             TangS.setText("Rp. "+tBM_Tv)
@@ -238,9 +254,13 @@ class MultigunaFragment : Fragment() {
                         }
                         fun payrollFinancing36(){
                             val multiply = (dp+bl) + (angL*tL)
+                            val value = multiply.toString()
                             val iM: Double = 0.17
                             val i:Int = 0
                             //Fungsi Pangkat
+                            if(tL == 11||tL == 23 || tL ==35){
+                                tL = tL+1
+                            }
                             val Number:Double = (1+(iM/12))
                             val tLs = tL.toDouble()
 
@@ -257,7 +277,7 @@ class MultigunaFragment : Fragment() {
                             val angM_Tv = angM1T.toString()
                             val tBM_Tv = tbMT.toString()
                             val tL2 = tL.toString()
-                            val value = multiply.toString()
+
                             val selisihEBP = selisih.toString()
                             angS2.setText("Rp. "+angM_Tv)
                             TangS.setText("Rp. "+tBM_Tv)
@@ -265,16 +285,12 @@ class MultigunaFragment : Fragment() {
                             tMS.setText(tL2)
                             stb.setText("Rp. "+selisihEBP)
                         }
-
-                        if(tL == 11||tL == 23 || tL ==35){
-                            tL = tL+1
-                        }
-                        if(tL == 12 || tL == 24 || tL == 36){
-                            if(tL == 12){
+                        if(tL == 12 || tL == 24 || tL == 36 || tL == 11|| tL == 23 || tL == 35){
+                            if(tL == 12 || tL == 11){
                                 payrollFinancing12()
-                            }else if (tL ==24){
+                            }else if (tL == 24 || tL == 23){
                                 payrollFinancing24()
-                            }else if (tL==36){
+                            }else if (tL== 36 || tL == 35){
                                 payrollFinancing36()
                             }
                         }else if (dp == null || bl == null || angL == null || tL == null || hb == null){
@@ -293,9 +309,13 @@ class MultigunaFragment : Fragment() {
 
                         fun payrollFinancing12(){
                             val multiply = (dp+bl) + (angL*tL)
+                            val value = multiply.toString()
                             val iM: Double = 0.16
                             val i:Int = 0
                             //Fungsi Pangkat
+                            if(tL == 11||tL == 23 || tL ==35){
+                                tL = tL+1
+                            }
                             val Number:Double = (1+(iM/12))
                             val tLs = tL.toDouble()
 
@@ -312,7 +332,7 @@ class MultigunaFragment : Fragment() {
                             val angM_Tv = angM1T.toString()
                             val tBM_Tv = tbMT.toString()
                             val tL2 = tL.toString()
-                            val value = multiply.toString()
+
                             val selisihEBP = selisih.toString()
                             angS2.setText("Rp. "+angM_Tv)
                             TangS.setText("Rp. "+tBM_Tv)
@@ -322,9 +342,13 @@ class MultigunaFragment : Fragment() {
                         }
                         fun payrollFinancing24(){
                             val multiply = (dp+bl) + (angL*tL)
+                            val value = multiply.toString()
                             val iM: Double = 0.175
                             val i:Int = 0
                             //Fungsi Pangkat
+                            if(tL == 11||tL == 23 || tL ==35){
+                                tL = tL+1
+                            }
                             val Number:Double = (1+(iM/12))
                             val tLs = tL.toDouble()
 
@@ -341,7 +365,7 @@ class MultigunaFragment : Fragment() {
                             val angM_Tv = angM1T.toString()
                             val tBM_Tv = tbMT.toString()
                             val tL2 = tL.toString()
-                            val value = multiply.toString()
+
                             val selisihEBP = selisih.toString()
                             angS2.setText("Rp. "+angM_Tv)
                             TangS.setText("Rp. "+tBM_Tv)
@@ -351,9 +375,13 @@ class MultigunaFragment : Fragment() {
                         }
                         fun payrollFinancing36(){
                             val multiply = (dp+bl) + (angL*tL)
+                            val value = multiply.toString()
                             val iM: Double = 0.19
                             val i:Int = 0
                             //Fungsi Pangkat
+                            if(tL == 11||tL == 23 || tL ==35){
+                                tL = tL+1
+                            }
                             val Number:Double = (1+(iM/12))
                             val tLs = tL.toDouble()
 
@@ -370,7 +398,7 @@ class MultigunaFragment : Fragment() {
                             val angM_Tv = angM1T.toString()
                             val tBM_Tv = tbMT.toString()
                             val tL2 = tL.toString()
-                            val value = multiply.toString()
+
                             val selisihEBP = selisih.toString()
                             angS2.setText("Rp. "+angM_Tv)
                             TangS.setText("Rp. "+tBM_Tv)
@@ -378,16 +406,12 @@ class MultigunaFragment : Fragment() {
                             tMS.setText(tL2)
                             stb.setText("Rp. "+selisihEBP)
                         }
-
-                        if(tL == 11||tL == 23 || tL ==35){
-                            tL = tL+1
-                        }
-                        if(tL == 12 || tL == 24 || tL == 36){
-                            if(tL == 12){
+                        if(tL == 12 || tL == 24 || tL == 36 || tL == 11|| tL == 23 || tL == 35){
+                            if(tL == 12 || tL == 11){
                                 payrollFinancing12()
-                            }else if (tL ==24){
+                            }else if (tL == 24 || tL == 23){
                                 payrollFinancing24()
-                            }else if (tL==36){
+                            }else if (tL== 36 || tL == 35){
                                 payrollFinancing36()
                             }
                         }else if (dp == null || bl == null || angL == null || tL == null || hb == null){
@@ -406,9 +430,13 @@ class MultigunaFragment : Fragment() {
 
                         fun payrollFinancing12(){
                             val multiply = (dp+bl) + (angL*tL)
+                            val value = multiply.toString()
                             val iM: Double = 0.19
                             val i:Int = 0
                             //Fungsi Pangkat
+                            if(tL == 11||tL == 23 || tL ==35){
+                                tL = tL+1
+                            }
                             val Number:Double = (1+(iM/12))
                             val tLs = tL.toDouble()
 
@@ -425,7 +453,7 @@ class MultigunaFragment : Fragment() {
                             val angM_Tv = angM1T.toString()
                             val tBM_Tv = tbMT.toString()
                             val tL2 = tL.toString()
-                            val value = multiply.toString()
+
                             val selisihEBP = selisih.toString()
                             angS2.setText("Rp. "+angM_Tv)
                             TangS.setText("Rp. "+tBM_Tv)
@@ -435,9 +463,13 @@ class MultigunaFragment : Fragment() {
                         }
                         fun payrollFinancing24(){
                             val multiply = (dp+bl) + (angL*tL)
+                            val value = multiply.toString()
                             val iM: Double = 0.231
                             val i:Int = 0
                             //Fungsi Pangkat
+                            if(tL == 11||tL == 23 || tL ==35){
+                                tL = tL+1
+                            }
                             val Number:Double = (1+(iM/12))
                             val tLs = tL.toDouble()
 
@@ -454,7 +486,7 @@ class MultigunaFragment : Fragment() {
                             val angM_Tv = angM1T.toString()
                             val tBM_Tv = tbMT.toString()
                             val tL2 = tL.toString()
-                            val value = multiply.toString()
+
                             val selisihEBP = selisih.toString()
                             angS2.setText("Rp. "+angM_Tv)
                             TangS.setText("Rp. "+tBM_Tv)
@@ -464,9 +496,13 @@ class MultigunaFragment : Fragment() {
                         }
                         fun payrollFinancing36(){
                             val multiply = (dp+bl) + (angL*tL)
+                            val value = multiply.toString()
                             val iM: Double = 0.231
                             val i:Int = 0
                             //Fungsi Pangkat
+                            if(tL == 11||tL == 23 || tL ==35){
+                                tL = tL+1
+                            }
                             val Number:Double = (1+(iM/12))
                             val tLs = tL.toDouble()
 
@@ -483,7 +519,7 @@ class MultigunaFragment : Fragment() {
                             val angM_Tv = angM1T.toString()
                             val tBM_Tv = tbMT.toString()
                             val tL2 = tL.toString()
-                            val value = multiply.toString()
+
                             val selisihEBP = selisih.toString()
                             angS2.setText("Rp. "+angM_Tv)
                             TangS.setText("Rp. "+tBM_Tv)
@@ -491,16 +527,12 @@ class MultigunaFragment : Fragment() {
                             tMS.setText(tL2)
                             stb.setText("Rp. "+selisihEBP)
                         }
-
-                        if(tL == 11||tL == 23 || tL ==35){
-                            tL = tL+1
-                        }
-                        if(tL == 12 || tL == 24 || tL == 36){
-                            if(tL == 12){
+                        if(tL == 12 || tL == 24 || tL == 36 || tL == 11|| tL == 23 || tL == 35){
+                            if(tL == 12 || tL == 11){
                                 payrollFinancing12()
-                            }else if (tL ==24){
+                            }else if (tL == 24 || tL == 23){
                                 payrollFinancing24()
-                            }else if (tL==36){
+                            }else if (tL== 36 || tL == 35){
                                 payrollFinancing36()
                             }
                         }else if (dp == null || bl == null || angL == null || tL == null || hb == null){
@@ -519,9 +551,13 @@ class MultigunaFragment : Fragment() {
 
                         fun payrollFinancing12(){
                             val multiply = (dp+bl) + (angL*tL)
+                            val value = multiply.toString()
                             val iM: Double = 0.2138
                             val i:Int = 0
                             //Fungsi Pangkat
+                            if(tL == 11||tL == 23 || tL ==35){
+                                tL = tL+1
+                            }
                             val Number:Double = (1+(iM/12))
                             val tLs = tL.toDouble()
 
@@ -538,7 +574,7 @@ class MultigunaFragment : Fragment() {
                             val angM_Tv = angM1T.toString()
                             val tBM_Tv = tbMT.toString()
                             val tL2 = tL.toString()
-                            val value = multiply.toString()
+
                             val selisihEBP = selisih.toString()
                             angS2.setText("Rp. "+angM_Tv)
                             TangS.setText("Rp. "+tBM_Tv)
@@ -548,9 +584,13 @@ class MultigunaFragment : Fragment() {
                         }
                         fun payrollFinancing24(){
                             val multiply = (dp+bl) + (angL*tL)
+                            val value = multiply.toString()
                             val iM: Double = 0.27
                             val i:Int = 0
                             //Fungsi Pangkat
+                            if(tL == 11||tL == 23 || tL ==35){
+                                tL = tL+1
+                            }
                             val Number:Double = (1+(iM/12))
                             val tLs = tL.toDouble()
 
@@ -567,7 +607,7 @@ class MultigunaFragment : Fragment() {
                             val angM_Tv = angM1T.toString()
                             val tBM_Tv = tbMT.toString()
                             val tL2 = tL.toString()
-                            val value = multiply.toString()
+
                             val selisihEBP = selisih.toString()
                             angS2.setText("Rp. "+angM_Tv)
                             TangS.setText("Rp. "+tBM_Tv)
@@ -577,9 +617,13 @@ class MultigunaFragment : Fragment() {
                         }
                         fun payrollFinancing36(){
                             val multiply = (dp+bl) + (angL*tL)
+                            val value = multiply.toString()
                             val iM: Double = 0.27
                             val i:Int = 0
                             //Fungsi Pangkat
+                            if(tL == 11||tL == 23 || tL ==35){
+                                tL = tL+1
+                            }
                             val Number:Double = (1+(iM/12))
                             val tLs = tL.toDouble()
 
@@ -596,7 +640,7 @@ class MultigunaFragment : Fragment() {
                             val angM_Tv = angM1T.toString()
                             val tBM_Tv = tbMT.toString()
                             val tL2 = tL.toString()
-                            val value = multiply.toString()
+
                             val selisihEBP = selisih.toString()
                             angS2.setText("Rp. "+angM_Tv)
                             TangS.setText("Rp. "+tBM_Tv)
@@ -604,16 +648,12 @@ class MultigunaFragment : Fragment() {
                             tMS.setText(tL2)
                             stb.setText("Rp. "+selisihEBP)
                         }
-
-                        if(tL == 11||tL == 23 || tL ==35){
-                            tL = tL+1
-                        }
-                        if(tL == 12 || tL == 24 || tL == 36){
-                            if(tL == 12){
+                        if(tL == 12 || tL == 24 || tL == 36 || tL == 11|| tL == 23 || tL == 35){
+                            if(tL == 12 || tL == 11){
                                 payrollFinancing12()
-                            }else if (tL ==24){
+                            }else if (tL == 24 || tL == 23){
                                 payrollFinancing24()
-                            }else if (tL==36){
+                            }else if (tL== 36 || tL == 35){
                                 payrollFinancing36()
                             }
                         }else if (dp == null || bl == null || angL == null || tL == null || hb == null){
