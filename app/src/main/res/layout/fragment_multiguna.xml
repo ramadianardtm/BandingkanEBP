@@ -32,10 +32,11 @@
             android:background="@drawable/round_bg_org"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/mbold"
+            android:layout_marginLeft="30dp"
             android:text="Input Pembiayaan Lain"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="19sp"
+            android:textSize="17sp"
             android:textStyle="bold" />
 
 
@@ -216,19 +217,30 @@
                 android:textColor="@color/black"
                 android:textSize="12sp" />
 
-            <Spinner
+           <!-- <Spinner
                 android:id="@+id/sp_jangkaWaktu"
                 android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_height="wrap_content"
-                android:entries="@array/jangkaWaktu"/>
+                android:entries="@array/jangkaWaktu"/>-->
+            <EditText
+                android:id="@+id/et_jangkaWaktu"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/mmedium"
+                android:hint="XX"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:singleLine="true"
+                android:textAlignment="textStart"
+                android:textSize="12sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/mmedium"
                 android:text="Bulan"
@@ -251,7 +263,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/mmedium"
-                android:text="*Jika ada.misal untuk biaya asuransi, admin, survey, dll"
+                android:text="*Jika ada, misal untuk biaya asuransi, admin, survey, dll"
                 android:textAlignment="viewStart"
                 android:textColor="@color/black"
                 android:textSize="10sp" />
@@ -291,9 +303,11 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/tv_totalBayarLain"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
+                    android:textColor="@color/black"
                     android:background="@drawable/round_bg_wt"
                     android:fontFamily="@font/mmedium"
                     android:hint="***********"
@@ -356,14 +370,14 @@
                 android:textColor="@color/black"
                 android:textSize="12sp" />
 
-            <EditText
-                android:id="@+id/et_angsuran2"
+            <TextView
+                android:id="@+id/tv_angsuranM"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:fontFamily="@font/mmedium"
-                android:hint="Input Angsuran/Bulan"
-                android:imeOptions="actionNext"
-                android:inputType="number"
+                android:layout_marginLeft="7dp"
+                android:textColor="@color/primary"
+                android:hint="Angsuran/Bulan Muamalat"
                 android:singleLine="true"
                 android:textAlignment="textStart"
                 android:textSize="12sp" />
@@ -393,11 +407,13 @@
                 android:textColor="@color/black"
                 android:textSize="12sp" />
 
-            <EditText
-                android:id="@+id/et_jangkaWaktu2"
-                android:layout_width="40dp"
+            <TextView
+                android:id="@+id/tv_jangkaWaktuM"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/mmedium"
+                android:layout_marginLeft="7dp"
+                android:textColor="@color/primary"
                 android:hint="XX"
                 android:imeOptions="actionNext"
                 android:inputType="number"
@@ -408,6 +424,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:fontFamily="@font/mmedium"
                 android:text="Bulan"
                 android:textColor="@color/black"
@@ -438,14 +455,14 @@
                 android:textColor="@color/black"
                 android:textSize="12sp" />
 
-            <EditText
-                android:id="@+id/et_totalBayar2"
+            <TextView
+                android:id="@+id/tv_totalBayarM"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/primary"
                 android:fontFamily="@font/mmedium"
-                android:hint="Input Angsuran/Bulan"
-                android:imeOptions="actionNext"
-                android:inputType="number"
+                android:layout_marginLeft="7dp"
+                android:hint="Total Angsuran"
                 android:singleLine="true"
                 android:textAlignment="textStart"
                 android:textSize="12sp" />
@@ -472,7 +489,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:fontFamily="@font/mbold"
-                    android:text="Total Bayar :"
+                    android:text="Selisih Total Bayar dengan EBP :"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="14sp"
@@ -481,6 +498,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/tv_selisihbayar"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
@@ -527,16 +545,16 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cons_skemaEBP"
                 android:layout_width="match_parent"
-                android:layout_height="85dp"
+                android:layout_height="100dp"
                 android:background="@drawable/round_bg"
                 android:textAlignment="viewStart">
 
                 <TextView
                     android:id="@+id/tv_skemaEBP"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="30dp"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="7dp"
                     android:fontFamily="@font/mbold"
                     android:text="Skema EBP"
                     android:textColor="@color/white"
@@ -545,21 +563,37 @@
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:layout_width="150dp"
-                    android:layout_height="35dp"
-                    android:layout_marginLeft="20dp"
-                    android:background="@drawable/round_bg_org"
-                    android:fontFamily="@font/mbold"
-                    android:text="Bandingkan!"
-                    android:textColor="@color/white"
-                    android:textSize="12sp"
-                    android:textStyle="normal"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                <Spinner
+                    android:id="@+id/sp_option"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/style_spinner"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_skemaEBP" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_skemaEBP" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linear15"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="13dp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_banding"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/round_bg_org"
+                android:fontFamily="@font/mbold"
+                android:text="Bandingkan!"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textStyle="normal" />
+
         </LinearLayout>
 
     </LinearLayout>

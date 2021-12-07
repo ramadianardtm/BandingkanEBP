@@ -4,27 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:windowSoftInputMode="adjustResize"
     tools:context=".MainActivity">
 
-    <ImageView
+    <LinearLayout
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:windowSoftInputMode="adjustResize"
         android:background="@color/primary"
         android:scaleType="centerCrop"
+        android:gravity="center_horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent=".18"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0" />
+        app:layout_constraintVertical_bias="0" >
+        <ImageView
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@raw/bandingkanebp"
+            android:adjustViewBounds="true"
+            android:windowSoftInputMode="adjustResize"
+            android:maxHeight="110dp"
+            android:layout_marginTop="10dp" />
+    </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintHeight_percent=".88"
         app:layout_constraintVertical_bias="1"
+        android:windowSoftInputMode="adjustResize"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,6 +62,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/vie_bg"
             app:tabTextColor="@color/primary"
+            android:windowSoftInputMode="adjustResize"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -59,17 +73,5 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ImageView
-        android:layout_width="175dp"
-        android:layout_height="wrap_content"
-        android:scaleType="fitXY"
-        android:src="@raw/bandingkanebp"
-        android:adjustViewBounds="true"
-        android:windowSoftInputMode="adjustResize"
-        android:maxHeight="110dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
