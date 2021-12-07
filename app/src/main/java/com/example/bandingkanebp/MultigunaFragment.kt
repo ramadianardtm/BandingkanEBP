@@ -45,6 +45,7 @@ class MultigunaFragment : Fragment() {
         val TangS = root.findViewById<TextView>(R.id.tv_totalBayarM)
         val stb = root.findViewById<TextView>(R.id.tv_selisihbayar)
 
+        val clr = root.findViewById<Button>(R.id.btn_clear)
         //Spinner
         val option = root.findViewById<Spinner>(R.id.sp_option)
         val options = arrayOf("Payroll Financing","Partnership Payroll","Payroll Funding","Partnership Non Payroll","Reguler")
@@ -663,8 +664,22 @@ class MultigunaFragment : Fragment() {
                         }
                     }
                 }
+                btn_clear.setOnClickListener { root->
+                    hb.text.clear()
+                    dp.text.clear()
+                    bl.text.clear()
+                    angL.text.clear()
+                    tL.text.clear()
+                    tbl.setText("")
+                    angS2.setText("")
+                    tMS.setText("")
+                    TangS.setText("")
+                    stb.setText("")
+                }
+
             }
         }
+
 
 
 /*
