@@ -142,7 +142,7 @@
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/mmedium"
-                android:text="Biaya Lain"
+                android:text="Biaya Lain*"
                 android:textAlignment="viewStart"
                 android:textColor="@color/black"
                 android:textSize="12sp" />
@@ -175,6 +175,24 @@
                 android:singleLine="true"
                 android:textAlignment="textStart"
                 android:textSize="12sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linear13b"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginHorizontal="13dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/mmedium"
+                android:text="*Biaya asuransi, admin, discount, dll."
+                android:textAlignment="viewStart"
+                android:textStyle="italic"
+                android:textColor="@color/black"
+                android:textSize="10sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -581,6 +599,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/mmedium"
                 android:text="@string/selisih"
+                android:textStyle="italic"
                 android:textAlignment="viewStart"
                 android:textColor="@color/black"
                 android:textSize="10sp" />
