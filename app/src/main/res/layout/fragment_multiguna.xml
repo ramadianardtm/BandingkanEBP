@@ -307,20 +307,19 @@
 
             <TextView
                 android:id="@+id/tv_totalBayarLain"
-                android:layout_width="140dp"
+                android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="7dp"
-                android:hint="*********"
                 android:fontFamily="@font/mmedium"
                 android:gravity="center_vertical"
+                android:hint="*********"
                 android:singleLine="true"
                 android:textColor="@color/black"
-                android:textStyle="bold"
                 android:textSize="12sp" />
 
             <Button
                 android:id="@+id/btn_clear"
-                android:layout_width="68dp"
+                android:layout_width="wrap_content"
                 android:layout_height="35dp"
                 android:layout_gravity="center_vertical"
                 android:layout_marginHorizontal="10dp"

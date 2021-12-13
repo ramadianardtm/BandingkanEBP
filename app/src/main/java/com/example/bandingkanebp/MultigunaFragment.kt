@@ -7,9 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.text.set
 import kotlinx.android.synthetic.main.fragment_multiguna.*
 import kotlinx.android.synthetic.main.fragment_multiguna.view.*
 import org.w3c.dom.Text
+import java.text.DecimalFormat
+import java.text.NumberFormat
 import java.util.*
 import kotlin.math.*
 import kotlin.math.log
@@ -48,6 +51,8 @@ class MultigunaFragment : Fragment() {
         val clr = root.findViewById<Button>(R.id.btn_clear)
         //Spinner
         val option = root.findViewById<Spinner>(R.id.sp_option)
+
+
         val options = arrayOf("Payroll Financing","Partnership Payroll","Payroll Funding","Partnership Non Payroll","Reguler")
         option?.adapter = ArrayAdapter<String>(activity?.applicationContext!!,android.R.layout.simple_list_item_1,options)
 
@@ -61,11 +66,15 @@ class MultigunaFragment : Fragment() {
                 if(position==0){
                     //Function calculation
                     btn_banding.setOnClickListener { root ->
+                        if(dp == null || bl == null || angL == null || tL == null || hb == null){
+                            Toast.makeText(activity,"Harap, Masukan Biaya!!Apabila tidak ada, ketik 0",Toast.LENGTH_LONG).show()
+                        }
                         val dp = dp.text.toString().toInt()
                         val bl = bl.text.toString().toInt()
                         val angL = angL.text.toString().toInt()
                         var tL = tL.text.toString().toInt()
                         val hb = hb.text.toString().toInt()
+
                         fun payrollFinancing12(){
                             val multiply = (dp+bl) + (angL*tL)
                             val value = multiply.toString()
@@ -94,7 +103,7 @@ class MultigunaFragment : Fragment() {
                             val selisihEBP = selisih.toString()
                             angS2.setText("Rp. "+angM_Tv)
                             TangS.setText("Rp. "+tBM_Tv)
-                            tbl.setText("Rp. "+value)
+                            tbl.setText(value)
                             tMS.setText(tL2)
                             stb.setText("Rp. "+selisihEBP)
                         }
@@ -127,7 +136,7 @@ class MultigunaFragment : Fragment() {
                             val selisihEBP = selisih.toString()
                             angS2.setText("Rp. "+angM_Tv)
                             TangS.setText("Rp. "+tBM_Tv)
-                            tbl.setText("Rp. "+value)
+                            tbl.setText(value)
                             tMS.setText(tL2)
                             stb.setText("Rp. "+selisihEBP)
                         }
@@ -160,12 +169,12 @@ class MultigunaFragment : Fragment() {
                             val selisihEBP = selisih.toString()
                             angS2.setText("Rp. "+angM_Tv)
                             TangS.setText("Rp. "+tBM_Tv)
-                            tbl.setText("Rp. "+value)
+                            tbl.setText(value)
                             tMS.setText(tL2)
                             stb.setText("Rp. "+selisihEBP)
                         }
 
-                        if(tL == 12 || tL == 24 || tL == 36 || tL == 11|| tL == 23 || tL == 35){
+                         if(tL == 12 || tL == 24 || tL == 36 || tL == 11|| tL == 23 || tL == 35){
                             if(tL == 12 || tL == 11){
                                 payrollFinancing12()
                             }else if (tL == 24 || tL == 23){
@@ -173,9 +182,7 @@ class MultigunaFragment : Fragment() {
                             }else if (tL== 36 || tL == 35){
                                 payrollFinancing36()
                             }
-                        }else if (dp == null || bl == null || angL == null || tL == null || hb == null){
-                            Toast.makeText(activity,"Harap, Masukan Biaya!!Apabila tidak ada, ketik 0",Toast.LENGTH_LONG).show()
-                        }else {
+                        }else{
                             Toast.makeText(activity,"Tenor Invalid!!",Toast.LENGTH_LONG).show()
                         }
                     }
@@ -216,7 +223,7 @@ class MultigunaFragment : Fragment() {
                             val selisihEBP = selisih.toString()
                             angS2.setText("Rp. "+angM_Tv)
                             TangS.setText("Rp. "+tBM_Tv)
-                            tbl.setText("Rp. "+value)
+                            tbl.setText(value)
                             tMS.setText(tL2)
                             stb.setText("Rp. "+selisihEBP)
                         }
@@ -249,7 +256,7 @@ class MultigunaFragment : Fragment() {
                             val selisihEBP = selisih.toString()
                             angS2.setText("Rp. "+angM_Tv)
                             TangS.setText("Rp. "+tBM_Tv)
-                            tbl.setText("Rp. "+value)
+                            tbl.setText(value)
                             tMS.setText(tL2)
                             stb.setText("Rp. "+selisihEBP)
                         }
@@ -282,11 +289,15 @@ class MultigunaFragment : Fragment() {
                             val selisihEBP = selisih.toString()
                             angS2.setText("Rp. "+angM_Tv)
                             TangS.setText("Rp. "+tBM_Tv)
-                            tbl.setText("Rp. "+value)
+                            tbl.setText(value)
                             tMS.setText(tL2)
                             stb.setText("Rp. "+selisihEBP)
                         }
-                        if(tL == 12 || tL == 24 || tL == 36 || tL == 11|| tL == 23 || tL == 35){
+
+                        if(dp == null || bl == null || angL == null || tL == null || hb == null){
+                            Toast.makeText(activity,"Harap, Masukan Biaya!!Apabila tidak ada, ketik 0",Toast.LENGTH_LONG).show()
+                        }
+                        else if(tL == 12 || tL == 24 || tL == 36 || tL == 11|| tL == 23 || tL == 35){
                             if(tL == 12 || tL == 11){
                                 payrollFinancing12()
                             }else if (tL == 24 || tL == 23){
@@ -294,8 +305,6 @@ class MultigunaFragment : Fragment() {
                             }else if (tL== 36 || tL == 35){
                                 payrollFinancing36()
                             }
-                        }else if (dp == null || bl == null || angL == null || tL == null || hb == null){
-                            Toast.makeText(activity,"Harap, Masukan Biaya!!Apabila tidak ada, ketik 0",Toast.LENGTH_LONG).show()
                         }else {
                             Toast.makeText(activity,"Tenor Invalid!!",Toast.LENGTH_LONG).show()
                         }
@@ -337,7 +346,7 @@ class MultigunaFragment : Fragment() {
                             val selisihEBP = selisih.toString()
                             angS2.setText("Rp. "+angM_Tv)
                             TangS.setText("Rp. "+tBM_Tv)
-                            tbl.setText("Rp. "+value)
+                            tbl.setText(value)
                             tMS.setText(tL2)
                             stb.setText("Rp. "+selisihEBP)
                         }
@@ -370,7 +379,7 @@ class MultigunaFragment : Fragment() {
                             val selisihEBP = selisih.toString()
                             angS2.setText("Rp. "+angM_Tv)
                             TangS.setText("Rp. "+tBM_Tv)
-                            tbl.setText("Rp. "+value)
+                            tbl.setText(value)
                             tMS.setText(tL2)
                             stb.setText("Rp. "+selisihEBP)
                         }
@@ -403,11 +412,15 @@ class MultigunaFragment : Fragment() {
                             val selisihEBP = selisih.toString()
                             angS2.setText("Rp. "+angM_Tv)
                             TangS.setText("Rp. "+tBM_Tv)
-                            tbl.setText("Rp. "+value)
+                            tbl.setText(value)
                             tMS.setText(tL2)
                             stb.setText("Rp. "+selisihEBP)
                         }
-                        if(tL == 12 || tL == 24 || tL == 36 || tL == 11|| tL == 23 || tL == 35){
+
+                        if(dp == null || bl == null || angL == null || tL == null || hb == null){
+                            Toast.makeText(activity,"Harap, Masukan Biaya!!Apabila tidak ada, ketik 0",Toast.LENGTH_LONG).show()
+                        }
+                        else if(tL == 12 || tL == 24 || tL == 36 || tL == 11|| tL == 23 || tL == 35){
                             if(tL == 12 || tL == 11){
                                 payrollFinancing12()
                             }else if (tL == 24 || tL == 23){
@@ -415,9 +428,7 @@ class MultigunaFragment : Fragment() {
                             }else if (tL== 36 || tL == 35){
                                 payrollFinancing36()
                             }
-                        }else if (dp == null || bl == null || angL == null || tL == null || hb == null){
-                            Toast.makeText(activity,"Harap, Masukan Biaya!!Apabila tidak ada, ketik 0",Toast.LENGTH_LONG).show()
-                        }else {
+                        }else{
                             Toast.makeText(activity,"Tenor Invalid!!",Toast.LENGTH_LONG).show()
                         }
                     }
@@ -458,7 +469,7 @@ class MultigunaFragment : Fragment() {
                             val selisihEBP = selisih.toString()
                             angS2.setText("Rp. "+angM_Tv)
                             TangS.setText("Rp. "+tBM_Tv)
-                            tbl.setText("Rp. "+value)
+                            tbl.setText(value)
                             tMS.setText(tL2)
                             stb.setText("Rp. "+selisihEBP)
                         }
@@ -491,7 +502,7 @@ class MultigunaFragment : Fragment() {
                             val selisihEBP = selisih.toString()
                             angS2.setText("Rp. "+angM_Tv)
                             TangS.setText("Rp. "+tBM_Tv)
-                            tbl.setText("Rp. "+value)
+                            tbl.setText(value)
                             tMS.setText(tL2)
                             stb.setText("Rp. "+selisihEBP)
                         }
@@ -524,11 +535,15 @@ class MultigunaFragment : Fragment() {
                             val selisihEBP = selisih.toString()
                             angS2.setText("Rp. "+angM_Tv)
                             TangS.setText("Rp. "+tBM_Tv)
-                            tbl.setText("Rp. "+value)
+                            tbl.setText(value)
                             tMS.setText(tL2)
                             stb.setText("Rp. "+selisihEBP)
                         }
-                        if(tL == 12 || tL == 24 || tL == 36 || tL == 11|| tL == 23 || tL == 35){
+
+                        if(dp == null || bl == null || angL == null || tL == null || hb == null){
+                            Toast.makeText(activity,"Harap, Masukan Biaya!!Apabila tidak ada, ketik 0",Toast.LENGTH_LONG).show()
+                        }
+                        else if(tL == 12 || tL == 24 || tL == 36 || tL == 11|| tL == 23 || tL == 35){
                             if(tL == 12 || tL == 11){
                                 payrollFinancing12()
                             }else if (tL == 24 || tL == 23){
@@ -536,9 +551,7 @@ class MultigunaFragment : Fragment() {
                             }else if (tL== 36 || tL == 35){
                                 payrollFinancing36()
                             }
-                        }else if (dp == null || bl == null || angL == null || tL == null || hb == null){
-                            Toast.makeText(activity,"Harap, Masukan Biaya!!Apabila tidak ada, ketik 0",Toast.LENGTH_LONG).show()
-                        }else {
+                        }else{
                             Toast.makeText(activity,"Tenor Invalid!!",Toast.LENGTH_LONG).show()
                         }
                     }
@@ -579,7 +592,7 @@ class MultigunaFragment : Fragment() {
                             val selisihEBP = selisih.toString()
                             angS2.setText("Rp. "+angM_Tv)
                             TangS.setText("Rp. "+tBM_Tv)
-                            tbl.setText("Rp. "+value)
+                            tbl.setText(value)
                             tMS.setText(tL2)
                             stb.setText("Rp. "+selisihEBP)
                         }
@@ -612,7 +625,7 @@ class MultigunaFragment : Fragment() {
                             val selisihEBP = selisih.toString()
                             angS2.setText("Rp. "+angM_Tv)
                             TangS.setText("Rp. "+tBM_Tv)
-                            tbl.setText("Rp. "+value)
+                            tbl.setText(value)
                             tMS.setText(tL2)
                             stb.setText("Rp. "+selisihEBP)
                         }
@@ -645,11 +658,15 @@ class MultigunaFragment : Fragment() {
                             val selisihEBP = selisih.toString()
                             angS2.setText("Rp. "+angM_Tv)
                             TangS.setText("Rp. "+tBM_Tv)
-                            tbl.setText("Rp. "+value)
+                            tbl.setText(value)
                             tMS.setText(tL2)
                             stb.setText("Rp. "+selisihEBP)
                         }
-                        if(tL == 12 || tL == 24 || tL == 36 || tL == 11|| tL == 23 || tL == 35){
+
+                        if(dp == null || bl == null || angL == null || tL == null || hb == null){
+                            Toast.makeText(activity,"Harap, Masukan Biaya!!Apabila tidak ada, ketik 0",Toast.LENGTH_LONG).show()
+                        }
+                        else if(tL == 12 || tL == 24 || tL == 36 || tL == 11|| tL == 23 || tL == 35){
                             if(tL == 12 || tL == 11){
                                 payrollFinancing12()
                             }else if (tL == 24 || tL == 23){
@@ -657,8 +674,6 @@ class MultigunaFragment : Fragment() {
                             }else if (tL== 36 || tL == 35){
                                 payrollFinancing36()
                             }
-                        }else if (dp == null || bl == null || angL == null || tL == null || hb == null){
-                            Toast.makeText(activity,"Harap, Masukan Biaya!!Apabila tidak ada, ketik 0",Toast.LENGTH_LONG).show()
                         }else {
                             Toast.makeText(activity,"Tenor Invalid!!",Toast.LENGTH_LONG).show()
                         }
@@ -666,8 +681,8 @@ class MultigunaFragment : Fragment() {
                 }
                 btn_clear.setOnClickListener { root->
                     hb.text.clear()
-                    dp.text.clear()
-                    bl.text.clear()
+                    dp.setText("")
+                    bl.setText("0")
                     angL.text.clear()
                     tL.text.clear()
                     tbl.setText("")

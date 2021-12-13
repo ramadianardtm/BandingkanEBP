@@ -3,19 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical"
     tools:context=".ProHajjFragment">
 
     <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:src="@drawable/block"/>
     <TextView
-        android:layout_width="match_parent"
-        android:fontFamily="@font/mbold"
-        android:textColor="@color/primary"
-        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:fontFamily="@font/mbold"
+        android:gravity="center"
+        android:text="Under Development Please Comeback Later:("
         android:textAlignment="center"
-        android:textSize="32dp"
-        android:layout_height="match_parent"
-        android:text="Under Development Please Comeback Later:(" />
-
+        android:textColor="@color/orange"
+        android:textSize="20dp" />
 </LinearLayout>
