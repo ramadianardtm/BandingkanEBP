@@ -4,11 +4,11 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher_ebp"
+        android:icon="@mipmap/logoiconcenturyexp"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_ebp_round"
+        android:roundIcon="@mipmap/logoiconcenturyexp"
         android:supportsRtl="true"
-        android:theme="@style/Theme.BandingkanEBP">
+        android:theme="@style/Theme.CenturyExpense">
         <activity
             android:name=".SplashScreenActivity"
             android:exported="true" >

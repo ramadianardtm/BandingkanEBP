@@ -3,7 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/ramad/StudioProjects/BandingkanEBP/app/src/main/res/layout/fragment_multiguna.xml" value="0.25" />
+        <entry key="..\:/Users/ramad/StudioProjects/BandingkanEBP/app/src/main/res/layout/fragment_multiguna.xml" value="0.33" />
+        <entry key="..\:/Users/ramad/StudioProjects/CenturyExpense2/app/src/main/res/drawable/round_bg.xml" value="0.133" />
+        <entry key="..\:/Users/ramad/StudioProjects/CenturyExpense2/app/src/main/res/drawable/round_bg_org.xml" value="0.133" />
+        <entry key="..\:/Users/ramad/StudioProjects/CenturyExpense2/app/src/main/res/drawable/roundedbgclear.xml" value="0.133" />
+        <entry key="..\:/Users/ramad/StudioProjects/CenturyExpense2/app/src/main/res/drawable/vie_bg.xml" value="0.133" />
+        <entry key="..\:/Users/ramad/StudioProjects/CenturyExpense2/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/ramad/StudioProjects/CenturyExpense2/app/src/main/res/layout/activity_splash_screen.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/ramad/StudioProjects/CenturyExpense2/app/src/main/res/layout/fragment_multiguna.xml" value="0.33" />
+        <entry key="..\:/Users/ramad/StudioProjects/CenturyExpense2/app/src/main/res/mipmap-anydpi-v26/ic_launcher_ebp.xml" value="0.133" />
       </map>
     </option>
   </component>

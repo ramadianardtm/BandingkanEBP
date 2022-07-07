@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,644 +8,683 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-<ScrollView
-    android:id="@+id/scrollView1"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <LinearLayout
+    <ScrollView
+        android:id="@+id/scrollView1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:orientation="vertical"
-        tools:context=".MultigunaFragment">
-
-        <TextView
-            android:id="@+id/title_1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:background="@drawable/round_bg_org"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/mbold"
-            android:layout_marginLeft="30dp"
-            android:text="Input Pembiayaan Lain"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="17sp"
-            android:textStyle="bold" />
-
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/linear1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginHorizontal="13dp"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/tv_hargaBarang"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mmedium"
-                android:text="Harga Barang"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=":"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/mmedium"
-                android:gravity="center_vertical"
-                android:text="Rp. "
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-
-            <EditText
-                android:id="@+id/et_hargaBarang"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mmedium"
-                android:hint="Input Harga Barang"
-                android:imeOptions="actionNext"
-                android:inputType="number"
-                android:singleLine="true"
-                android:textAlignment="textStart"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linear2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="13dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/tv_uangMuka"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mmedium"
-                android:text="Uang Muka"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mmedium"
-                android:text=":"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/mmedium"
-                android:gravity="center_vertical"
-                android:text="Rp. "
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-
-            <EditText
-                android:id="@+id/et_uangMuka"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mmedium"
-                android:hint="Input Uang Muka"
-                android:imeOptions="actionNext"
-                android:inputType="number"
-                android:singleLine="true"
-                android:textAlignment="textStart"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linear3"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="13dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/tv_biayaLain"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mmedium"
-                android:text="Biaya Lain*"
-                android:textAlignment="viewStart"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mmedium"
-                android:text=":"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/mmedium"
-                android:gravity="center_vertical"
-                android:text="Rp. "
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-
-            <EditText
-                android:id="@+id/et_biayaLain"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mmedium"
-                android:hint="Input Biaya Lain"
-                android:text="0"
-                android:imeOptions="actionNext"
-                android:inputType="number"
-                android:singleLine="true"
-                android:textAlignment="textStart"
-                android:textSize="12sp" />
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/linear13b"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="10dp"
-            android:layout_marginHorizontal="13dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mmedium"
-                android:text="*Biaya admin, asuransi, survey, dll"
-                android:textAlignment="viewStart"
-                android:textStyle="italic"
-                android:textColor="@color/black"
-                android:textSize="10sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linear4"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="13dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/tv_angsuran"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mmedium"
-                android:text="Angsuran/Bulan"
-                android:textAlignment="viewStart"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mmedium"
-                android:text=":"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/mmedium"
-                android:gravity="center_vertical"
-                android:text="Rp. "
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-
-            <EditText
-                android:id="@+id/et_angsuran"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mmedium"
-                android:hint="Input Angsuran/Bulan"
-                android:imeOptions="actionNext"
-                android:inputType="number"
-                android:singleLine="true"
-                android:textAlignment="textStart"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linear5"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginHorizontal="13dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/tv_jangkaWaktu"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:fontFamily="@font/mmedium"
-                android:text="Jangka Waktu"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mmedium"
-                android:layout_gravity="center_vertical"
-                android:text=":"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-
-            <EditText
-                android:id="@+id/et_jangkaWaktu"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mmedium"
-                android:hint="XX"
-                android:imeOptions="actionNext"
-                android:inputType="number"
-                android:singleLine="true"
-                android:textAlignment="textStart"
-                android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/mmedium"
-                android:text="Bulan"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/linea5b"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginHorizontal="13dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/tv_totalBayar"
-                android:layout_width="120dp"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:fontFamily="@font/mmedium"
-                android:text="Total Bayar"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/mmedium"
-                android:gravity="center_vertical"
-                android:text=":"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/tv_totalBayarLain"
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="7dp"
-                android:fontFamily="@font/mmedium"
-                android:gravity="center_vertical"
-                android:hint="*********"
-                android:singleLine="true"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-
-            <Button
-                android:id="@+id/btn_clear"
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginHorizontal="10dp"
-                android:background="@drawable/round_bg_org"
-                android:fontFamily="@font/mbold"
-                android:text="Clear"
-                android:textColor="@color/white"
-                android:textSize="10dp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linear7"
-            android:layout_width="match_parent"
-            android:layout_height="3dp"
-            android:background="@color/primary"
-            android:layout_marginHorizontal="13dp"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linear6">
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linear8"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="13dp"
-            android:layout_marginTop="5dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="120dp"
-                android:layout_height="40dp"
-                android:src="@drawable/logo_bank_muamalat" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/linear8b"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/round_bg_prp"
-            android:layout_marginHorizontal="13dp"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/tv_skemaEBP2"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:gravity="center_vertical"
-                android:layout_marginLeft="8dp"
-                android:fontFamily="@font/mbold"
-                android:text="Skema EBP"
-                android:textColor="@color/white"
-                android:textSize="14sp" />
-            <Spinner
-                android:id="@+id/sp_option"
-                android:layout_gravity="center_vertical"
-                android:layout_width="match_parent"
-                android:layout_marginHorizontal="15dp"
-                android:layout_height="30dp"
-                android:background="@drawable/style_spinner" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linear9"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginHorizontal="13dp"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/tv_angsuran2"
-                android:layout_width="120dp"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:fontFamily="@font/mmedium"
-                android:text="Angsuran/bulan"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/mmedium"
-                android:gravity="center_vertical"
-                android:text=":"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/tv_angsuranM"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="7dp"
-                android:fontFamily="@font/mmedium"
-                android:gravity="center_vertical"
-                android:hint="Angsuran/Bulan Muamalat"
-                android:singleLine="true"
-                android:textColor="@color/primary"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linear10"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:gravity="center_vertical"
-            android:layout_marginHorizontal="13dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/tv_jangkaWaktu2"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:fontFamily="@font/mmedium"
-                android:text="Jangka Waktu"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mmedium"
-                android:gravity="center_vertical"
-                android:text=":"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/tv_jangkaWaktuM"
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mmedium"
-                android:gravity="center_vertical"
-                android:layout_marginLeft="7dp"
-                android:textColor="@color/primary"
-                android:hint="XX"
-                android:imeOptions="actionNext"
-                android:inputType="number"
-                android:singleLine="true"
-                android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:gravity="center_vertical"
-                android:fontFamily="@font/mmedium"
-                android:text="Bulan"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linear11"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:gravity="center_vertical"
-            android:layout_marginHorizontal="13dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/tv_totalBayar2"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:fontFamily="@font/mmedium"
-                android:text="Total Bayar BMI**"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:fontFamily="@font/mmedium"
-                android:text=":"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/tv_totalBayarM"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:textColor="@color/primary"
-                android:fontFamily="@font/mmedium"
-                android:layout_marginLeft="7dp"
-                android:hint="Total Angsuran"
-                android:singleLine="true"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linear13"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="13dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mmedium"
-                android:text="@string/selisih"
-                android:textStyle="italic"
-                android:textAlignment="viewStart"
-                android:textColor="@color/black"
-                android:textSize="10sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linear12"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginHorizontal="13dp"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cons_totalbayarEBP"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:background="@drawable/round_bg"
-                android:textAlignment="viewStart">
-
-                <TextView
-                    android:id="@+id/tv_totalBayarEBP"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/mbold"
-                    android:text="Selisih Total Bayar dengan EBP :"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textSize="14sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/tv_selisihbayar"
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:background="@drawable/round_bg_wt"
-                    android:fontFamily="@font/mmedium"
-                    android:gravity="center"
-                    android:hint="***********"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_totalBayarEBP" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </LinearLayout>
-
-
-
-        <LinearLayout
-            android:id="@+id/linear15"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="12dp"
-            android:layout_marginHorizontal="13dp"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/btn_banding"
-                android:layout_width="150dp"
-                android:layout_height="35dp"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/round_bg_org"
-                android:fontFamily="@font/mbold"
-                android:text="Bandingkan!"
-                android:textColor="@color/white"
-                android:textSize="12sp"
-                android:textStyle="normal" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/linear16"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_marginHorizontal="13dp"
-            android:orientation="horizontal">
-
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/mmedium"
-                android:layout_marginTop="8dp"
-                android:textStyle="bold"
-                android:text="Powered by DNM - CFB Ver 1.0"
-                android:textAlignment="center"
-                android:textColor="@color/primary"
-                android:textSize="10sp" />
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                tools:context=".MultigunaFragment">
+
+                <TextView
+                    android:id="@+id/title_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/round_bg_org"
+                    android:fontFamily="@font/mbold"
+                    android:text="Input Pembiayaan"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+
+                <LinearLayout
+                    android:id="@+id/linear1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="13dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_hargaBarang"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mmedium"
+                        android:text="Harga Jual"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=":"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/mmedium"
+                        android:gravity="center_vertical"
+                        android:text="Rp. "
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/et_hargaJual"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mmedium"
+                        android:hint="Input Harga Jual"
+                        android:imeOptions="actionNext"
+                        android:inputType="numberDecimal"
+                        android:singleLine="true"
+                        android:textAlignment="textStart"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="13dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_uangMuka"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mmedium"
+                        android:text="Fee Agent"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mmedium"
+                        android:text=":"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/mmedium"
+                        android:gravity="center_vertical"
+                        android:text="%"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/et_feeAgent"
+                        android:layout_width="230dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:fontFamily="@font/mmedium"
+                        android:hint="Input Fee Agent"
+                        android:imeOptions="actionNext"
+                        android:inputType="numberDecimal"
+                        android:singleLine="true"
+                        android:textAlignment="textStart"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="13dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_biayaLain"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mmedium"
+                        android:text="NJOP"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mmedium"
+                        android:text=":"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/mmedium"
+                        android:gravity="center_vertical"
+                        android:text="Rp. "
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/et_njop"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mmedium"
+                        android:hint="Input NJOP"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:singleLine="true"
+                        android:textAlignment="textStart"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear30"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="13dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_npoptkp"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mmedium"
+                        android:text="NPOPTKP"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mmedium"
+                        android:text=":"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/mmedium"
+                        android:gravity="center_vertical"
+                        android:text="Rp. "
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/et_npoptkp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mmedium"
+                        android:hint="Input NPOPTKP Daerah"
+                        android:imeOptions="actionNext"
+                        android:inputType="numberDecimal"
+                        android:singleLine="true"
+                        android:textAlignment="textStart"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linea5b"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:paddingRight="5dp"
+                    android:gravity="end"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_clear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginHorizontal="10dp"
+                        android:background="@drawable/roundedbgclear"
+                        android:fontFamily="@font/mbold"
+                        android:text="Clear"
+                        android:textColor="@color/white"
+                        android:textSize="10dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear7"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_marginHorizontal="13dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/black"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linear6"></LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear9"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginHorizontal="13dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_angsuran2"
+                        android:layout_width="120dp"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/mmedium"
+                        android:gravity="center_vertical"
+                        android:text="Biaya Fee Agent"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/mmedium"
+                        android:gravity="center_vertical"
+                        android:text=":"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_ttlfeeAgent"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="7dp"
+                        android:fontFamily="@font/mmedium"
+                        android:gravity="center_vertical"
+                        android:hint="Total Fee Agent"
+                        android:singleLine="true"
+                        android:textColor="@color/orange"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear10"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginHorizontal="13dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_jangkaWaktu2"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mmedium"
+                        android:gravity="center_vertical"
+                        android:text="Pajak Penjual"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mmedium"
+                        android:gravity="center_vertical"
+                        android:text=":"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_TTLPajakPenjual"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mmedium"
+                        android:layout_marginLeft="7dp"
+                        android:gravity="center_vertical"
+                        android:hint="Total Pajak Penjual"
+                        android:singleLine="true"
+                        android:textColor="@color/orange"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginHorizontal="13dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mmedium"
+                        android:gravity="center_vertical"
+                        android:text="Pajak Pembeli"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mmedium"
+                        android:gravity="center_vertical"
+                        android:text=":"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_TTLPajakPembeli"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mmedium"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="7dp"
+                        android:hint="Pajak Pembeli"
+                        android:singleLine="true"
+                        android:textColor="@color/orange"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/linear111"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginHorizontal="13dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_totalBayar3"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mmedium"
+                        android:gravity="center_vertical"
+                        android:text="Biaya NJOP"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mmedium"
+                        android:gravity="center_vertical"
+                        android:text=":"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_ttlNjop"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mmedium"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="7dp"
+                        android:hint="Total NJOP"
+                        android:singleLine="true"
+                        android:textColor="@color/orange"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear13"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginHorizontal="13dp"
+                    android:background="@color/black"
+                    android:orientation="horizontal"></LinearLayout>
+                <LinearLayout
+                    android:id="@+id/linear101"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginHorizontal="13dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mmedium"
+                        android:gravity="center_vertical"
+                        android:text="Validasi Sertifikat"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mmedium"
+                        android:gravity="center_vertical"
+                        android:text=":"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_TTLvalidsertif"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mmedium"
+                        android:layout_marginLeft="7dp"
+                        android:gravity="center_vertical"
+                        android:hint="Biaya Validasi Sertifikat "
+                        android:imeOptions="actionNext"
+                        android:singleLine="true"
+                        android:textColor="@color/orange"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="13dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="120dp"
+                        android:layout_height="40dp"
+                        android:fontFamily="@font/mmedium"
+                        android:gravity="center_vertical"
+                        android:text="Pengecekan Sertifikat"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mmedium"
+                        android:gravity="center_vertical"
+                        android:text=":"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_TTLceksertif"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mmedium"
+                        android:gravity="center_vertical"
+                        android:hint="Biaya Cek Sertifikat "
+                        android:layout_marginLeft="7dp"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true"
+                        android:textColor="@color/orange"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="13dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mmedium"
+                        android:gravity="center_vertical"
+                        android:text="Validasi Pajak Penjual"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mmedium"
+                        android:gravity="center_vertical"
+                        android:text=":"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_TTLvalidpjk"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mmedium"
+                        android:gravity="center_vertical"
+                        android:hint="Biaya Validasi Pajak "
+                        android:layout_marginLeft="7dp"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true"
+                        android:textColor="@color/orange"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginHorizontal="13dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mmedium"
+                        android:gravity="center_vertical"
+                        android:text="Akta Jual Beli"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mmedium"
+                        android:gravity="center_vertical"
+                        android:text=":"
+                        android:textColor="@color/black"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_TTLaktajualbeli"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/mmedium"
+                        android:gravity="center_vertical"
+                        android:hint="Biaya Akta Jual Beli"
+                        android:layout_marginLeft="7dp"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true"
+                        android:textColor="@color/orange"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear12"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="13dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cons_totalbayarEBP"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:background="@drawable/round_bg"
+                        android:textAlignment="viewStart">
+
+                        <TextView
+                            android:id="@+id/tv_totalBayarEBP"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/mbold"
+                            android:text="Total Expense :"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tv_ttlexpense"
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/round_bg_wt"
+                            android:fontFamily="@font/mmedium"
+                            android:gravity="center"
+                            android:hint="***********"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tv_totalBayarEBP" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/linear15"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="13dp"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/btn_banding"
+                        android:layout_width="150dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/roundedbgclear"
+                        android:fontFamily="@font/mbold"
+                        android:text="Hitung!"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:textStyle="normal" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear16"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="13dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/mmedium"
+                        android:text="Powered by Century - Ver 1.0"
+                        android:textAlignment="center"
+                        android:textColor="@color/orange"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+
+            </LinearLayout>
         </LinearLayout>
-
-
-    </LinearLayout>
-    </LinearLayout>
-</ScrollView>
-</RelativeLayout>
+    </ScrollView>
+</LinearLayout>
 
 
 

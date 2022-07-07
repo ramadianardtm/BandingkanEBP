@@ -21,15 +21,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUpTabs() {
         val adapter = PageAdapter(supportFragmentManager)
-        adapter.addFragment(MultigunaFragment(), "Multiguna")
-        adapter.addFragment(ProHajjFragment(), "ProHajj")
-        adapter.addFragment(KPRFragment(), "KPR")
+        adapter.addFragment(MultigunaFragment(), "Expense")
         viewPager.adapter = adapter
         tab_layout.setupWithViewPager(viewPager)
 
         tab_layout.getTabAt(0)
-        tab_layout.getTabAt(1)
-        tab_layout.getTabAt(2)
     }
 
 

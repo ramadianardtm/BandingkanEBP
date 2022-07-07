@@ -28,699 +28,95 @@ class MultigunaFragment : Fragment() {
     ): View? {
 
         // Inflate the layout for this fragment
-        val root =  inflater.inflate(R.layout.fragment_multiguna, container, false)
+        val root = inflater.inflate(R.layout.fragment_multiguna, container, false)
 
         //val jangkaWaktu = resources.getStringArray(R.array.jangkaWaktu)
         //val spinner = root.findViewById<Spinner>(R.id.sp_jangkaWaktu)
 
         //Deklarasi bank lain
-        val hb = root.findViewById<EditText>(R.id.et_hargaBarang)
-        val dp = root.findViewById<EditText>(R.id.et_uangMuka)
-        val bl = root.findViewById<EditText>(R.id.et_biayaLain)
-        val angL = root.findViewById<EditText>(R.id.et_angsuran)
-        val tL = root.findViewById<EditText>(R.id.et_jangkaWaktu)
-        val tbl = root.findViewById<TextView>(R.id.tv_totalBayarLain)
+        val hb = root.findViewById<EditText>(R.id.et_hargaJual)
+        val dp = root.findViewById<EditText>(R.id.et_feeAgent)
+        val bl = root.findViewById<EditText>(R.id.et_njop)
+        val npoptkp = root.findViewById<EditText>(R.id.et_npoptkp)
         val btn_banding = root.findViewById<Button>(R.id.btn_banding)
 
-        val formatter = NumberFormat.getCurrencyInstance(Locale("in","ID"))
+        val formatter = NumberFormat.getCurrencyInstance(Locale("in", "ID"))
 
-        //deklarasi muamalat
-        val angS2 = root.findViewById<TextView>(R.id.tv_angsuranM)
-        val tMS = root.findViewById<TextView>(R.id.tv_jangkaWaktuM)
-        val TangS = root.findViewById<TextView>(R.id.tv_totalBayarM)
-        val stb = root.findViewById<TextView>(R.id.tv_selisihbayar)
+        //deklarasi
+        val TTLFeeAgent = root.findViewById<TextView>(R.id.tv_ttlfeeAgent)
+        val tMS = root.findViewById<TextView>(R.id.tv_TTLPajakPenjual)
+        val TTLPajakPembeli = root.findViewById<TextView>(R.id.tv_TTLPajakPembeli)
+        val TtlNJOP = root.findViewById<TextView>(R.id.tv_ttlNjop)
+        val totalexpense = root.findViewById<TextView>(R.id.tv_ttlexpense)
+        val TTLValidSertif = root.findViewById<TextView>(R.id.tv_TTLvalidsertif)
+        val TTLCekSertif = root.findViewById<TextView>(R.id.tv_TTLceksertif)
+        val TTLValidPajak = root.findViewById<TextView>(R.id.tv_TTLvalidpjk)
+        val TTLaktajualbeli = root.findViewById<TextView>(R.id.tv_TTLaktajualbeli)
+
 
         val clr = root.findViewById<Button>(R.id.btn_clear)
-        //Spinner
-        val option = root.findViewById<Spinner>(R.id.sp_option)
+
+        btn_banding.setOnClickListener { root ->
+            val dp = dp.text.toString().toDouble()
+            val bl = bl.text.toString().toInt()
+            val hb = hb.text.toString().toInt()
+            val npoptkp = npoptkp.text.toString().toInt()
+
+                val pjkPenjual = (2.5/100)*hb
+                val pjkPembeli = 0.05*(hb-npoptkp)
+                Log.d("Debug", "Harga Jual => "+hb)
+                Log.d("Debug", "Npoptkp => "+npoptkp)
+                Log.d("Debug", "Pajak Pembeli => "+pjkPembeli)
+                val validsertif = 100000
+                val ceksertif = 500000
+                val validpajak = 500000
+                val ttlaktajualbeli = ((0.5/100)*hb)
+                val angM1 = ((dp/100)*hb)
+                val totalbayar = pjkPenjual+pjkPembeli+validsertif+ceksertif+validpajak+ttlaktajualbeli+angM1
 
 
-        val options = arrayOf("Payroll Financing","Partnership Payroll","Payroll Funding","Partnership Non Payroll","Reguler")
-        option?.adapter = ArrayAdapter<String>(activity?.applicationContext!!,android.R.layout.simple_list_item_1,options)
+                val ttlvalidsertif = formatter.format(validsertif.toDouble())
+                val ttlceksertif = formatter.format(ceksertif.toDouble())
+                val ttlvalidpajak = formatter.format(validpajak.toDouble())
+                val aktajualbeli = formatter.format(ttlaktajualbeli)
+                val ttlpajakpembeli = formatter.format(pjkPembeli)
 
-        option.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+                val angM1T = angM1.toInt()
+                val angM_Tv = formatter.format(angM1T.toDouble())
+                val tL2 = formatter.format(pjkPenjual)
+                val ttlnjop = formatter.format(bl)
+                val biayaexpense = formatter.format(totalbayar)
+
+                TTLFeeAgent.setText(angM_Tv)
+                TTLPajakPembeli.setText(ttlpajakpembeli)
+                tMS.setText(tL2)
+                TtlNJOP.setText(ttlnjop)
+                TTLValidSertif.setText(ttlvalidsertif)
+                TTLCekSertif.setText(ttlceksertif)
+                TTLValidPajak.setText(ttlvalidpajak)
+                TTLaktajualbeli.setText(aktajualbeli)
+                totalexpense.setText(biayaexpense)
             }
 
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                Log.d("Position:", position.toString())
-
-                if(position==0){
-                    //Function calculation
-                    btn_banding.setOnClickListener { root ->
-                        if(dp == null || bl == null || angL == null || tL == null || hb == null){
-                            Toast.makeText(activity,"Harap, Masukan Biaya!!Apabila tidak ada, ketik 0",Toast.LENGTH_LONG).show()
-                        }
-                        val dp = dp.text.toString().toInt()
-                        val bl = bl.text.toString().toInt()
-                        val angL = angL.text.toString().toInt()
-                        var tL = tL.text.toString().toInt()
-                        val hb = hb.text.toString().toInt()
-
-                        fun payrollFinancing12(){
-                            val multiply = (dp+bl) + (angL*tL)
-                            val value = formatter.format(multiply.toDouble())
-                            val iM: Double = 0.145
-                            val i:Int = 0
-                            //Fungsi Pangkat
-                            if(tL == 11||tL == 23 || tL ==35){
-                                tL = tL+1
-                            }
-                            val Number:Double = (1+(iM/12))
-                            val tLs = tL.toDouble()
-
-                            val sum = Math.pow(Number,-tLs)
-                            val tesS = sum.toString()
-                            Log.d("TEs",tesS)
-
-                            val angM1 = (hb * (iM/12) / (1-(sum)))
-                            val angM1T = angM1.toInt()
-                            val tBM = bl + (angM1*tL)
-                            val tbMT = tBM.toInt()
-                            val selisih = (multiply) - (tbMT)
-
-                            val angM_Tv = formatter.format(angM1T.toDouble())
-                            val tBM_Tv = formatter.format(tbMT.toDouble())
-                            val tL2 = tL.toString()
-                            val selisihEBP = formatter.format(selisih.toDouble())
-                            angS2.setText(angM_Tv)
-                            TangS.setText(tBM_Tv)
-                            tbl.setText(value)
-                            tMS.setText(tL2)
-                            stb.setText(selisihEBP)
-                        }
-                        fun payrollFinancing24(){
-                            val multiply = (dp+bl) + (angL*tL)
-                            val value = formatter.format(multiply.toDouble())
-                            val iM: Double = 0.16
-                            val i:Int = 0
-                            //Fungsi Pangkat
-                            if(tL == 11||tL == 23 || tL ==35){
-                                tL = tL+1
-                            }
-                            val Number:Double = (1+(iM/12))
-                            val tLs = tL.toDouble()
-
-                            val sum = Math.pow(Number,-tLs)
-                            val tesS = sum.toString()
-                            Log.d("TEs",tesS)
-
-                            val angM1 = (hb * (iM/12) / (1-(sum)))
-                            val angM1T = angM1.toInt()
-                            val tBM = bl + (angM1*tL)
-                            val tbMT = tBM.toInt()
-                            val selisih = (multiply) - (tbMT)
-
-                            val angM_Tv = formatter.format(angM1T.toDouble())
-                            val tBM_Tv = formatter.format(tbMT.toDouble())
-                            val tL2 = tL.toString()
-                            val selisihEBP = formatter.format(selisih.toDouble())
-
-                            angS2.setText(angM_Tv)
-                            TangS.setText(tBM_Tv)
-                            tbl.setText(value)
-                            tMS.setText(tL2)
-                            stb.setText(selisihEBP)
-                        }
-                        fun payrollFinancing36(){
-                            val multiply = (dp+bl) + (angL*tL)
-                            val value = formatter.format(multiply.toDouble())
-                            val iM: Double = 0.16
-                            val i:Int = 0
-                            //Fungsi Pangkat
-                            if(tL == 11||tL == 23 || tL ==35){
-                                tL = tL+1
-                            }
-                            val Number:Double = (1+(iM/12))
-                            val tLs = tL.toDouble()
-
-                            val sum = Math.pow(Number,-tLs)
-                            val tesS = sum.toString()
-                            Log.d("TEs",tesS)
-
-                            val angM1 = (hb * (iM/12) / (1-(sum)))
-                            val angM1T = angM1.toInt()
-                            val tBM = bl + (angM1*tL)
-                            val tbMT = tBM.toInt()
-                            val selisih = (multiply) - (tbMT)
-
-                            val angM_Tv = formatter.format(angM1T.toDouble())
-                            val tBM_Tv = formatter.format(tbMT.toDouble())
-                            val tL2 = tL.toString()
-                            val selisihEBP = formatter.format(selisih.toDouble())
-
-                            angS2.setText(angM_Tv)
-                            TangS.setText(tBM_Tv)
-                            tbl.setText(value)
-                            tMS.setText(tL2)
-                            stb.setText(selisihEBP)
-                        }
-
-                         if(tL == 12 || tL == 24 || tL == 36 || tL == 11|| tL == 23 || tL == 35){
-                            if(tL == 12 || tL == 11){
-                                payrollFinancing12()
-                            }else if (tL == 24 || tL == 23){
-                                payrollFinancing24()
-                            }else if (tL== 36 || tL == 35){
-                                payrollFinancing36()
-                            }
-                        }else{
-                            Toast.makeText(activity,"Tenor Invalid!!",Toast.LENGTH_LONG).show()
-                        }
-                    }
-                }else if (position==1){
-                    //Function calculation
-                    btn_banding.setOnClickListener { root ->
-                        val dp = dp.text.toString().toInt()
-                        val bl = bl.text.toString().toInt()
-                        val angL = angL.text.toString().toInt()
-                        var tL = tL.text.toString().toInt()
-                        val hb = hb.text.toString().toInt()
-                        fun payrollFinancing12(){
-                            val multiply = (dp+bl) + (angL*tL)
-                            val value = formatter.format(multiply.toDouble())
-                            val iM: Double = 0.155
-                            val i:Int = 0
-                            //Fungsi Pangkat
-                            if(tL == 11||tL == 23 || tL ==35){
-                                tL = tL+1
-                            }
-                            val Number:Double = (1+(iM/12))
-                            val tLs = tL.toDouble()
-
-                            val sum = Math.pow(Number,-tLs)
-                            val tesS = sum.toString()
-                            Log.d("TEs",tesS)
-
-                            val angM1 = (hb * (iM/12) / (1-(sum)))
-                            val angM1T = angM1.toInt()
-                            val tBM = bl + (angM1*tL)
-                            val tbMT = tBM.toInt()
-                            val selisih = (multiply) - (tbMT)
-
-                            val angM_Tv = formatter.format(angM1T.toDouble())
-                            val tBM_Tv = formatter.format(tbMT.toDouble())
-                            val tL2 = tL.toString()
-                            val selisihEBP = formatter.format(selisih.toDouble())
-
-                            angS2.setText(angM_Tv)
-                            TangS.setText(tBM_Tv)
-                            tbl.setText(value)
-                            tMS.setText(tL2)
-                            stb.setText(selisihEBP)
-                        }
-                        fun payrollFinancing24(){
-                            val multiply = (dp+bl) + (angL*tL)
-                            val value = formatter.format(multiply.toDouble())
-                            val iM: Double = 0.17
-                            val i:Int = 0
-                            //Fungsi Pangkat
-                            if(tL == 11||tL == 23 || tL ==35){
-                                tL = tL+1
-                            }
-                            val Number:Double = (1+(iM/12))
-                            val tLs = tL.toDouble()
-
-                            val sum = Math.pow(Number,-tLs)
-                            val tesS = sum.toString()
-                            Log.d("TEs",tesS)
-
-                            val angM1 = (hb * (iM/12) / (1-(sum)))
-                            val angM1T = angM1.toInt()
-                            val tBM = bl + (angM1*tL)
-                            val tbMT = tBM.toInt()
-                            val selisih = (multiply) - (tbMT)
-
-                            val angM_Tv = formatter.format(angM1T.toDouble())
-                            val tBM_Tv = formatter.format(tbMT.toDouble())
-                            val tL2 = tL.toString()
-                            val selisihEBP = formatter.format(selisih.toDouble())
-
-                            angS2.setText(angM_Tv)
-                            TangS.setText(tBM_Tv)
-                            tbl.setText(value)
-                            tMS.setText(tL2)
-                            stb.setText(selisihEBP)
-                        }
-                        fun payrollFinancing36(){
-                            val multiply = (dp+bl) + (angL*tL)
-                            val value = formatter.format(multiply.toDouble())
-                            val iM: Double = 0.17
-                            val i:Int = 0
-                            //Fungsi Pangkat
-                            if(tL == 11||tL == 23 || tL ==35){
-                                tL = tL+1
-                            }
-                            val Number:Double = (1+(iM/12))
-                            val tLs = tL.toDouble()
-
-                            val sum = Math.pow(Number,-tLs)
-                            val tesS = sum.toString()
-                            Log.d("TEs",tesS)
-
-                            val angM1 = (hb * (iM/12) / (1-(sum)))
-                            val angM1T = angM1.toInt()
-                            val tBM = bl + (angM1*tL)
-                            val tbMT = tBM.toInt()
-                            val selisih = (multiply) - (tbMT)
-
-                            val angM_Tv = formatter.format(angM1T.toDouble())
-                            val tBM_Tv = formatter.format(tbMT.toDouble())
-                            val tL2 = tL.toString()
-                            val selisihEBP = formatter.format(selisih.toDouble())
-
-                            angS2.setText(angM_Tv)
-                            TangS.setText(tBM_Tv)
-                            tbl.setText(value)
-                            tMS.setText(tL2)
-                            stb.setText(selisihEBP)
-                        }
-
-                        if(dp == null || bl == null || angL == null || tL == null || hb == null){
-                            Toast.makeText(activity,"Harap, Masukan Biaya!!Apabila tidak ada, ketik 0",Toast.LENGTH_LONG).show()
-                        }
-                        else if(tL == 12 || tL == 24 || tL == 36 || tL == 11|| tL == 23 || tL == 35){
-                            if(tL == 12 || tL == 11){
-                                payrollFinancing12()
-                            }else if (tL == 24 || tL == 23){
-                                payrollFinancing24()
-                            }else if (tL== 36 || tL == 35){
-                                payrollFinancing36()
-                            }
-                        }else {
-                            Toast.makeText(activity,"Tenor Invalid!!",Toast.LENGTH_LONG).show()
-                        }
-                    }
-                }else if (position==2){
-                    btn_banding.setOnClickListener { root ->
-                        val dp = dp.text.toString().toInt()
-                        val bl = bl.text.toString().toInt()
-                        val angL = angL.text.toString().toInt()
-                        var tL = tL.text.toString().toInt()
-                        val hb = hb.text.toString().toInt()
-
-                        fun payrollFinancing12(){
-                            val multiply = (dp+bl) + (angL*tL)
-                            val value = formatter.format(multiply.toDouble())
-                            val iM: Double = 0.16
-                            val i:Int = 0
-                            //Fungsi Pangkat
-                            if(tL == 11||tL == 23 || tL ==35){
-                                tL = tL+1
-                            }
-                            val Number:Double = (1+(iM/12))
-                            val tLs = tL.toDouble()
-
-                            val sum = Math.pow(Number,-tLs)
-                            val tesS = sum.toString()
-                            Log.d("TEs",tesS)
-
-                            val angM1 = (hb * (iM/12) / (1-(sum)))
-                            val angM1T = angM1.toInt()
-                            val tBM = bl + (angM1*tL)
-                            val tbMT = tBM.toInt()
-                            val selisih = (multiply) - (tbMT)
-
-                            val angM_Tv = formatter.format(angM1T.toDouble())
-                            val tBM_Tv = formatter.format(tbMT.toDouble())
-                            val tL2 = tL.toString()
-                            val selisihEBP = formatter.format(selisih.toDouble())
-
-                            angS2.setText(angM_Tv)
-                            TangS.setText(tBM_Tv)
-                            tbl.setText(value)
-                            tMS.setText(tL2)
-                            stb.setText(selisihEBP)
-                        }
-                        fun payrollFinancing24(){
-                            val multiply = (dp+bl) + (angL*tL)
-                            val value = formatter.format(multiply.toDouble())
-                            val iM: Double = 0.175
-                            val i:Int = 0
-                            //Fungsi Pangkat
-                            if(tL == 11||tL == 23 || tL ==35){
-                                tL = tL+1
-                            }
-                            val Number:Double = (1+(iM/12))
-                            val tLs = tL.toDouble()
-
-                            val sum = Math.pow(Number,-tLs)
-                            val tesS = sum.toString()
-                            Log.d("TEs",tesS)
-
-                            val angM1 = (hb * (iM/12) / (1-(sum)))
-                            val angM1T = angM1.toInt()
-                            val tBM = bl + (angM1*tL)
-                            val tbMT = tBM.toInt()
-                            val selisih = (multiply) - (tbMT)
-
-                            val angM_Tv = formatter.format(angM1T.toDouble())
-                            val tBM_Tv = formatter.format(tbMT.toDouble())
-                            val tL2 = tL.toString()
-                            val selisihEBP = formatter.format(selisih.toDouble())
-
-                            angS2.setText(angM_Tv)
-                            TangS.setText(tBM_Tv)
-                            tbl.setText(value)
-                            tMS.setText(tL2)
-                            stb.setText(selisihEBP)
-                        }
-                        fun payrollFinancing36(){
-                            val multiply = (dp+bl) + (angL*tL)
-                            val value = formatter.format(multiply.toString())
-                            val iM: Double = 0.19
-                            val i:Int = 0
-                            //Fungsi Pangkat
-                            if(tL == 11||tL == 23 || tL ==35){
-                                tL = tL+1
-                            }
-                            val Number:Double = (1+(iM/12))
-                            val tLs = tL.toDouble()
-
-                            val sum = Math.pow(Number,-tLs)
-                            val tesS = sum.toString()
-                            Log.d("TEs",tesS)
-
-                            val angM1 = (hb * (iM/12) / (1-(sum)))
-                            val angM1T = angM1.toInt()
-                            val tBM = bl + (angM1*tL)
-                            val tbMT = tBM.toInt()
-                            val selisih = (multiply) - (tbMT)
-
-                            val angM_Tv = formatter.format(angM1T.toDouble())
-                            val tBM_Tv = formatter.format(tbMT.toDouble())
-                            val tL2 = tL.toString()
-                            val selisihEBP = formatter.format(selisih.toDouble())
-
-                            angS2.setText(angM_Tv)
-                            TangS.setText(tBM_Tv)
-                            tbl.setText(value)
-                            tMS.setText(tL2)
-                            stb.setText(selisihEBP)
-                        }
-
-                        if(dp == null || bl == null || angL == null || tL == null || hb == null){
-                            Toast.makeText(activity,"Harap, Masukan Biaya!!Apabila tidak ada, ketik 0",Toast.LENGTH_LONG).show()
-                        }
-                        else if(tL == 12 || tL == 24 || tL == 36 || tL == 11|| tL == 23 || tL == 35){
-                            if(tL == 12 || tL == 11){
-                                payrollFinancing12()
-                            }else if (tL == 24 || tL == 23){
-                                payrollFinancing24()
-                            }else if (tL== 36 || tL == 35){
-                                payrollFinancing36()
-                            }
-                        }else{
-                            Toast.makeText(activity,"Tenor Invalid!!",Toast.LENGTH_LONG).show()
-                        }
-                    }
-                }else if (position==3){
-                    btn_banding.setOnClickListener { root ->
-                        val dp = dp.text.toString().toInt()
-                        val bl = bl.text.toString().toInt()
-                        val angL = angL.text.toString().toInt()
-                        var tL = tL.text.toString().toInt()
-                        val hb = hb.text.toString().toInt()
-
-                        fun payrollFinancing12(){
-                            val multiply = (dp+bl) + (angL*tL)
-                            val value = formatter.format(multiply.toDouble())
-                            val iM: Double = 0.19
-                            val i:Int = 0
-                            //Fungsi Pangkat
-                            if(tL == 11||tL == 23 || tL ==35){
-                                tL = tL+1
-                            }
-                            val Number:Double = (1+(iM/12))
-                            val tLs = tL.toDouble()
-
-                            val sum = Math.pow(Number,-tLs)
-                            val tesS = sum.toString()
-                            Log.d("TEs",tesS)
-
-                            val angM1 = (hb * (iM/12) / (1-(sum)))
-                            val angM1T = angM1.toInt()
-                            val tBM = bl + (angM1*tL)
-                            val tbMT = tBM.toInt()
-                            val selisih = (multiply) - (tbMT)
-
-                            val angM_Tv = formatter.format(angM1T.toDouble())
-                            val tBM_Tv = formatter.format(tbMT.toDouble())
-                            val tL2 = tL.toString()
-                            val selisihEBP = formatter.format(selisih.toDouble())
-
-                            angS2.setText(angM_Tv)
-                            TangS.setText(tBM_Tv)
-                            tbl.setText(value)
-                            tMS.setText(tL2)
-                            stb.setText(selisihEBP)
-                        }
-                        fun payrollFinancing24(){
-                            val multiply = (dp+bl) + (angL*tL)
-                            val value = formatter.format(multiply.toDouble())
-                            val iM: Double = 0.231
-                            val i:Int = 0
-                            //Fungsi Pangkat
-                            if(tL == 11||tL == 23 || tL ==35){
-                                tL = tL+1
-                            }
-                            val Number:Double = (1+(iM/12))
-                            val tLs = tL.toDouble()
-
-                            val sum = Math.pow(Number,-tLs)
-                            val tesS = sum.toString()
-                            Log.d("TEs",tesS)
-
-                            val angM1 = (hb * (iM/12) / (1-(sum)))
-                            val angM1T = angM1.toInt()
-                            val tBM = bl + (angM1*tL)
-                            val tbMT = tBM.toInt()
-                            val selisih = (multiply) - (tbMT)
-
-                            val angM_Tv = formatter.format(angM1T.toDouble())
-                            val tBM_Tv = formatter.format(tbMT.toDouble())
-                            val tL2 = tL.toString()
-                            val selisihEBP = formatter.format(selisih.toDouble())
-
-                            angS2.setText(angM_Tv)
-                            TangS.setText(tBM_Tv)
-                            tbl.setText(value)
-                            tMS.setText(tL2)
-                            stb.setText(selisihEBP)
-                        }
-                        fun payrollFinancing36(){
-                            val multiply = (dp+bl) + (angL*tL)
-                            val value = formatter.format(multiply.toDouble())
-                            val iM: Double = 0.231
-                            val i:Int = 0
-                            //Fungsi Pangkat
-                            if(tL == 11||tL == 23 || tL ==35){
-                                tL = tL+1
-                            }
-                            val Number:Double = (1+(iM/12))
-                            val tLs = tL.toDouble()
-
-                            val sum = Math.pow(Number,-tLs)
-                            val tesS = sum.toString()
-                            Log.d("TEs",tesS)
-
-                            val angM1 = (hb * (iM/12) / (1-(sum)))
-                            val angM1T = angM1.toInt()
-                            val tBM = bl + (angM1*tL)
-                            val tbMT = tBM.toInt()
-                            val selisih = (multiply) - (tbMT)
-
-                            val angM_Tv = formatter.format(angM1T.toDouble())
-                            val tBM_Tv = formatter.format(tbMT.toDouble())
-                            val tL2 = tL.toString()
-                            val selisihEBP = formatter.format(selisih.toDouble())
-
-                            angS2.setText(angM_Tv)
-                            TangS.setText(tBM_Tv)
-                            tbl.setText(value)
-                            tMS.setText(tL2)
-                            stb.setText(selisihEBP)
-                        }
-
-                        if(dp == null || bl == null || angL == null || tL == null || hb == null){
-                            Toast.makeText(activity,"Harap, Masukan Biaya!!Apabila tidak ada, ketik 0",Toast.LENGTH_LONG).show()
-                        }
-                        else if(tL == 12 || tL == 24 || tL == 36 || tL == 11|| tL == 23 || tL == 35){
-                            if(tL == 12 || tL == 11){
-                                payrollFinancing12()
-                            }else if (tL == 24 || tL == 23){
-                                payrollFinancing24()
-                            }else if (tL== 36 || tL == 35){
-                                payrollFinancing36()
-                            }
-                        }else{
-                            Toast.makeText(activity,"Tenor Invalid!!",Toast.LENGTH_LONG).show()
-                        }
-                    }
-                }else if (position==4){
-                    btn_banding.setOnClickListener { root ->
-                        val dp = dp.text.toString().toInt()
-                        val bl = bl.text.toString().toInt()
-                        val angL = angL.text.toString().toInt()
-                        var tL = tL.text.toString().toInt()
-                        val hb = hb.text.toString().toInt()
-
-                        fun payrollFinancing12(){
-                            val multiply = (dp+bl) + (angL*tL)
-                            val value = formatter.format(multiply.toDouble())
-                            val iM: Double = 0.2138
-                            val i:Int = 0
-                            //Fungsi Pangkat
-                            if(tL == 11||tL == 23 || tL ==35){
-                                tL = tL+1
-                            }
-                            val Number:Double = (1+(iM/12))
-                            val tLs = tL.toDouble()
-
-                            val sum = Math.pow(Number,-tLs)
-                            val tesS = sum.toString()
-                            Log.d("TEs",tesS)
-
-                            val angM1 = (hb * (iM/12) / (1-(sum)))
-                            val angM1T = angM1.toInt()
-                            val tBM = bl + (angM1*tL)
-                            val tbMT = tBM.toInt()
-                            val selisih = (multiply) - (tbMT)
-
-                            val angM_Tv = formatter.format(angM1T.toDouble())
-                            val tBM_Tv = formatter.format(tbMT.toDouble())
-                            val tL2 = tL.toString()
-                            val selisihEBP = formatter.format(selisih.toDouble())
-
-                            angS2.setText(angM_Tv)
-                            TangS.setText(tBM_Tv)
-                            tbl.setText(value)
-                            tMS.setText(tL2)
-                            stb.setText(selisihEBP)
-                        }
-                        fun payrollFinancing24(){
-                            val multiply = (dp+bl) + (angL*tL)
-                            val value = formatter.format(multiply.toString())
-                            val iM: Double = 0.27
-                            val i:Int = 0
-                            //Fungsi Pangkat
-                            if(tL == 11||tL == 23 || tL ==35){
-                                tL = tL+1
-                            }
-                            val Number:Double = (1+(iM/12))
-                            val tLs = tL.toDouble()
-
-                            val sum = Math.pow(Number,-tLs)
-                            val tesS = sum.toString()
-                            Log.d("TEs",tesS)
-
-                            val angM1 = (hb * (iM/12) / (1-(sum)))
-                            val angM1T = angM1.toInt()
-                            val tBM = bl + (angM1*tL)
-                            val tbMT = tBM.toInt()
-                            val selisih = (multiply) - (tbMT)
-
-                            val angM_Tv = formatter.format(angM1T.toDouble())
-                            val tBM_Tv = formatter.format(tbMT.toDouble())
-                            val tL2 = tL.toString()
-                            val selisihEBP = formatter.format(selisih.toDouble())
-
-                            angS2.setText(angM_Tv)
-                            TangS.setText(tBM_Tv)
-                            tbl.setText(value)
-                            tMS.setText(tL2)
-                            stb.setText(selisihEBP)
-                        }
-                        fun payrollFinancing36(){
-                            val multiply = (dp+bl) + (angL*tL)
-                            val value = formatter.format(multiply.toDouble())
-                            val iM: Double = 0.27
-                            val i:Int = 0
-                            //Fungsi Pangkat
-                            if(tL == 11||tL == 23 || tL ==35){
-                                tL = tL+1
-                            }
-                            val Number:Double = (1+(iM/12))
-                            val tLs = tL.toDouble()
-
-                            val sum = Math.pow(Number,-tLs)
-                            val tesS = sum.toString()
-                            Log.d("TEs",tesS)
-
-                            val angM1 = (hb * (iM/12) / (1-(sum)))
-                            val angM1T = angM1.toInt()
-                            val tBM = bl + (angM1*tL)
-                            val tbMT = tBM.toInt()
-                            val selisih = (multiply) - (tbMT)
-
-                            val angM_Tv = formatter.format(angM1T.toDouble())
-                            val tBM_Tv = formatter.format(tbMT.toDouble())
-                            val tL2 = tL.toString()
-                            val selisihEBP = formatter.format(selisih.toDouble())
-
-                            angS2.setText(angM_Tv)
-                            TangS.setText(tBM_Tv)
-                            tbl.setText(value)
-                            tMS.setText(tL2)
-                            stb.setText(selisihEBP)
-                        }
-
-                        if(dp == null || bl == null || angL == null || tL == null || hb == null){
-                            Toast.makeText(activity,"Harap, Masukan Biaya!!Apabila tidak ada, ketik 0",Toast.LENGTH_LONG).show()
-                        }
-                        else if(tL == 12 || tL == 24 || tL == 36 || tL == 11|| tL == 23 || tL == 35){
-                            if(tL == 12 || tL == 11){
-                                payrollFinancing12()
-                            }else if (tL == 24 || tL == 23){
-                                payrollFinancing24()
-                            }else if (tL== 36 || tL == 35){
-                                payrollFinancing36()
-                            }
-                        }else {
-                            Toast.makeText(activity,"Tenor Invalid!!",Toast.LENGTH_LONG).show()
-                        }
-                    }
-                }
-                btn_clear.setOnClickListener { root->
-                    hb.text.clear()
-                    dp.setText("")
-                    bl.setText("0")
-                    angL.text.clear()
-                    tL.text.clear()
-                    tbl.setText("")
-                    angS2.setText("")
-                    tMS.setText("")
-                    TangS.setText("")
-                    stb.setText("")
-                }
-
+            clr.setOnClickListener { root ->
+                hb.text.clear()
+                dp.setText("")
+                bl.setText("")
+                npoptkp.text.clear()
+                tMS.setText("")
+                TTLPajakPembeli.setText("")
+                TTLaktajualbeli.setText("")
+                TTLValidPajak.setText("")
+                TtlNJOP.setText("")
+                TTLValidSertif.setText("")
+                TTLCekSertif.setText("")
+                TTLFeeAgent.setText("")
+                totalexpense.setText("")
             }
-        }
 
-
-
-/*
-spinner?.adapter = activity?.applicationContext?.let { ArrayAdapter(it, R.layout.support_simple_spinner_dropdown_item, jangkaWaktu) } as SpinnerAdapter
-spinner?.onItemSelectedListener = object :AdapterView.OnItemSelectedListener{
-
-override fun onNothingSelected(parent: AdapterView<*>?) {
-println("error")
-}
-
-override fun onItemSelected(
-parent: AdapterView<*>?,
-view: View?,
-position: Int,
-id: Long
-) {
-val type = parent?.getItemAtPosition(position).toString()
-Toast.makeText(activity,type, Toast.LENGTH_LONG).show()
-println(type)
-}
-}
-*/
 
         return root
-    }
+        }
 
-}
+    }
